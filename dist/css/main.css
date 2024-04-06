@@ -1,0 +1,185 @@
+/* line 1, scss/_menu.scss */
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1; }
+  /* line 7, scss/_menu.scss */
+  .menu-wrap .toggler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    cursor: pointer; }
+    /* line 17, scss/_menu.scss */
+    .menu-wrap .toggler:checked + .hamburger > div {
+      transform: rotate(135deg); }
+      /* line 19, scss/_menu.scss */
+      .menu-wrap .toggler:checked + .hamburger > div:before, .menu-wrap .toggler:checked + .hamburger > div:after {
+        top: 0;
+        transform: rotate(90deg); }
+    /* line 25, scss/_menu.scss */
+    .menu-wrap .toggler:checked:hover + .hamburger > div {
+      transform: rotate(225deg); }
+    /* line 28, scss/_menu.scss */
+    .menu-wrap .toggler:checked ~ .menu {
+      visibility: visible; }
+      /* line 30, scss/_menu.scss */
+      .menu-wrap .toggler:checked ~ .menu > div {
+        transform: scale(1);
+        transition-duration: var(--menu-speed); }
+    /* line 35, scss/_menu.scss */
+    .menu-wrap .toggler:checked ~ .menu > div > div {
+      opacity: 1;
+      transition: opacity 0.4s ease; }
+  /* line 40, scss/_menu.scss */
+  .menu-wrap .hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    z-index: 1;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    /* line 52, scss/_menu.scss */
+    .menu-wrap .hamburger > div {
+      position: relative;
+      flex: none;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 2s ease; }
+      /* line 62, scss/_menu.scss */
+      .menu-wrap .hamburger > div:before, .menu-wrap .hamburger > div:after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        width: 100%;
+        height: 2px;
+        background-color: inherit; }
+      /* line 71, scss/_menu.scss */
+      .menu-wrap .hamburger > div:after {
+        top: 10px; }
+  /* line 76, scss/_menu.scss */
+  .menu-wrap .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    /* line 87, scss/_menu.scss */
+    .menu-wrap .menu > div {
+      background-color: var(--overlay-color);
+      width: 300vw;
+      height: 300vh;
+      border-radius: 50%;
+      display: flex;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0); }
+      /* line 97, scss/_menu.scss */
+      .menu-wrap .menu > div > div {
+        text-align: center;
+        width: 90vw;
+        height: 100vh;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        /* line 106, scss/_menu.scss */
+        .menu-wrap .menu > div > div > ul > li {
+          list-style: none;
+          color: #fff;
+          font-size: 1.5rem;
+          padding: 1rem; }
+          /* line 111, scss/_menu.scss */
+          .menu-wrap .menu > div > div > ul > li a {
+            color: #fff;
+            text-decoration: none; }
+            /* line 114, scss/_menu.scss */
+            .menu-wrap .menu > div > div > ul > li a:hover {
+              color: var(--secondary-color); }
+
+/* line 2, scss/main.scss */
+:root {
+  --primary-color: rgba(13, 110, 139, 0.75);
+  --secondary-color: rgba(229, 148, 0, 0.9);
+  --overlay-color: rgba(24, 39, 51, 0.85);
+  --menu-speed: 0.75s; }
+
+/* line 8, scss/main.scss */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+/* line 13, scss/main.scss */
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.4; }
+
+/* line 17, scss/main.scss */
+#showcase {
+  background-color: var(--primary-color);
+  color: #fff;
+  height: 100vh;
+  position: relative; }
+  /* line 23, scss/main.scss */
+  #showcase::before {
+    content: "";
+    background: url("/showcase.jpg") no-repeat center center/cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; }
+  /* line 33, scss/main.scss */
+  #showcase .container {
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 3rem; }
+  /* line 39, scss/main.scss */
+  #showcase .showcase-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100%; }
+    /* line 46, scss/main.scss */
+    #showcase .showcase-container h1 {
+      font-size: 4rem; }
+    /* line 49, scss/main.scss */
+    #showcase .showcase-container p {
+      font-size: 1.2rem; }
+    /* line 52, scss/main.scss */
+    #showcase .showcase-container .btn {
+      display: inline-block;
+      background-color: var(--overlay-color);
+      color: #fff;
+      padding: 1.2rem 1.8rem;
+      margin: 1.5rem;
+      text-decoration: none;
+      border: none;
+      border-radius: 10px; }
+      /* line 61, scss/main.scss */
+      #showcase .showcase-container .btn:hover {
+        opacity: 0.8; }
